@@ -1,5 +1,4 @@
-import Image from "next/image";
-import BarraSuperior from "./widgets/BarraSuperiror";
+import BarraSuperior from "./widgets/BarraSuperior";
 import MenuNavegacao from "./widgets/MenuNavegacao";
 import GaleriasProdutos from "./widgets/GaleriaProdutos";
 
