@@ -8,7 +8,7 @@ export const dados = {
       descricao: "Celular com 128GB, tela AMOLED e câmera tripla.",
       preco: 1299.0,
       local: "São Paulo, SP",
-      url: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/649731/xlarge/Smartphone-Samsung-Galaxy-A06-128GB-Azul-Escuro-4g-Ram-4gb-C-mera-50mp-Selfie-8mp-Tela-6-7-_1742413229.jpg",
+      url: "smartphone-XYZ",
       fotos: [
         {
           id: "1",
@@ -28,7 +28,7 @@ export const dados = {
       descricao: "Notebook com RTX 3060, 16GB RAM, SSD 1TB.",
       preco: 4599.0,
       local: "Belo Horizonte, MG",
-      url: "/produto/notebook-gamer-abc",
+      url: "produto/notebook-gamer-abc",
       fotos: [
         {
           id: "1",
@@ -48,7 +48,7 @@ export const dados = {
       descricao: "Tênis confortável para corridas e caminhadas.",
       preco: 199.99,
       local: "Curitiba, PR",
-      url: "/produto/tenis-esportivo",
+      url: "produto/tenis-esportivo",
       fotos: [
         {
           id: "1",
@@ -68,7 +68,7 @@ export const dados = {
       descricao: "Cadeira ergonômica com ajuste de altura e inclinação.",
       preco: 899.0,
       local: "Fortaleza, CE",
-      url: "/produto/cadeira-gamer",
+      url: "produto/cadeira-gamer",
       fotos: [
         {
           id: "1",
@@ -88,28 +88,32 @@ export const dados = {
 export default function GaleriasProdutos() {
   return (
     <div>
-      <section className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {dados.produtos.map((produto, indice) => (
-          <Link
-            href={produto.url}
-            key={indice}
-            className="border rounded-2xl p-4 shadow-sm hover:shadow-md transition block"
-          >
-            <img
-              src={produto.fotos[0].url}
-              alt={produto.fotos[0].descricao}
-              className="w-full h-40 object-cover rounded-xl mb-3"
-            />
-            <h2 className="text-lg font-semibold text-gray-800 mb-1">
-              {produto.titulo}
-              <p className="text-sm text-gray-600 mb-2">{produto.descricao}</p>
-            </h2>
-            <p className="text-2xl font-bold text-green-600 mb-2">
-              R$ {produto.preco}
-            </p>
-            <p className="text-sm text-gray-500">{produto.local}</p>
-          </Link>
-        ))}
+      <section className="max-w-7xl mx-auto px-4 py-8">
+        <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {dados.produtos.map((produto) => (
+            <Link
+              href={`/produto/${produto.id}`}
+              key={produto.id}
+              className="border rounded-2xl p-4 shadow-sm hover:shadow-md transition block"
+            >
+              <img
+                src={produto.fotos[0].url}
+                alt={produto.fotos[0].descricao}
+                className="w-full h-40 object-cover rounded-xl mb-3"
+              />
+              <h2 className="text-lg font-semibold text-gray-800 mb-1">
+                {produto.titulo}
+                <p className="text-sm text-gray-600 mb-2">
+                  {produto.descricao}
+                </p>
+              </h2>
+              <p className="text-2xl font-bold text-green-600 mb-2">
+                R$ {produto.preco}
+              </p>
+              <p className="text-sm text-gray-500">{produto.local}</p>
+            </Link>
+          ))}
+        </div>
       </section>
     </div>
   );
