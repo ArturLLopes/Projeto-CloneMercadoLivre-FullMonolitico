@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/jsx-key */
 import BarraSuperior from "@/app/widgets/BarraSuperior";
 
 import MenuNavegacao from "@/app/widgets/MenuNavegacao";
@@ -104,7 +106,7 @@ type Props = {
   };
 };
 
-export default function Detalhes({ params }: Props) {
+export default async function Detalhes({ params }: Props) {
   const { id } = params;
 
   const produto = dados.produto.find((p) => p.id === id);
@@ -126,10 +128,9 @@ export default function Detalhes({ params }: Props) {
               {produto.fotos.map((foto, i) => {
                 const primeiroItem = i == 0 ? "col-span-2 row-span-2" : "";
                 return (
-                  // eslint-disable-next-line react/jsx-key
-                  <div className={primeiroItem}>
-                    <img
-                      key={foto.id}
+                  
+                  <div key={i} className={primeiroItem}>
+                    <img                      
                       src={foto.url}
                       alt={foto.descricao}
                       className="w-full object-cover rounded-xl h-full"
