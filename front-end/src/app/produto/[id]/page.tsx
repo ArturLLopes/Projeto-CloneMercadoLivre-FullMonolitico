@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/jsx-key */
 import BarraSuperior from "@/app/widgets/BarraSuperior";
 
 import MenuNavegacao from "@/app/widgets/MenuNavegacao";
