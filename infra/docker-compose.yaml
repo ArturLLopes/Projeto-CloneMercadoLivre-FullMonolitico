@@ -13,6 +13,9 @@ services:
     
     image: mercado-livre-back:0.0.5
     container_name: mercado-livre-back
+    volumes:
+      - ../back-end:/app
+      - /app/node_modules
     ports:
       - "3050:3001"
     networks:
