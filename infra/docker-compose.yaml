@@ -1,7 +1,7 @@
 services:
   mercado-livre-front:
     
-    image: mercado-livre-front:0.0.5
+    image: mercado-livre-front:0.1.0
     container_name: mercado-livre-front
     volumes:
       - ../front-end:/app
@@ -15,7 +15,7 @@ services:
 
   mercado-livre-back:
     
-    image: mercado-livre-back:0.0.5
+    image: mercado-livre-back:0.1.0
     container_name: mercado-livre-back
     volumes:
       - ../back-end:/app
