@@ -6,6 +6,7 @@ services:
     volumes:
       - ../front-end:/app
       - /app/node_modules
+    
     ports:
       - "3040:3000"
     networks:
@@ -19,15 +20,18 @@ services:
     volumes:
       - ../back-end:/app
       - /app/node_modules
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@mercado-livre-db:5432/mercado_livre?schema=public
     ports:
       - "3050:3001"
+    command: sh  -c "npm i && npx prisma generate && npm run start:dev"
     networks:
       - mercado-livre-network
 
 
-  mercado_livre-db:
+  mercado-livre-db:
     image: postgres:16-alpine
-    container_name: mercado_livre-db
+    container_name: mercado-livre-db
     restart: always
     environment:
       POSTGRES_USER: postgres
