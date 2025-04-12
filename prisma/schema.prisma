@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"  
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Produto {
+  id          String   @id @default(cuid()) // Usando cuid() para gerar o id automaticamente
+  titulo      String
+  descricao   String
+  preco       Float
+  local       String
+  url         String
+  fotos       Foto[]   // Relacionamento com as fotos
+}
+
+model Foto {
+  id          String   @id @default(cuid()) // Usando cuid() para gerar o id automaticamente
+  descricao   String
+  url         String
+  produtoId   String   // Chave estrangeira para o produto
+  produto     Produto  @relation(fields: [produtoId], references: [id])
+}
