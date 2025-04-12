@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"],
-  "watchOptions": {
-      "watchFile": "priorityPollingInterval",
-      "watchDirectory": "dynamicprioritypolling",
-      "excludeDirectories": ["**/node_modules", "dist", ".git"]
-    },
-}
